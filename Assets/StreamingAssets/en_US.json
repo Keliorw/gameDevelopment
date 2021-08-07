@@ -1,0 +1,12 @@
+{
+	"items": [
+		{
+			"key": "ShopButtonText",
+			"value": "Shop"
+		},
+		{
+			"key": "UpgradeButtonText",
+			"value": "Shop"
+		}
+	]
+}
