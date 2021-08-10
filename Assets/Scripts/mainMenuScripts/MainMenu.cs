@@ -9,8 +9,8 @@ public class MainMenu : MonoBehaviour
     public GameObject settingsMenuPanel;
     public GameObject upgradeMenuPanel;
     public GameObject shopMenuPanel;
-    public GameObject heroesRepositoryPanel;
-    public GameObject mobsRepositoryPanel;
+    public GameObject heroesListPanel;
+    public GameObject mobsListPanel;
     public GameObject infoLvLPanel;
 
 
@@ -21,8 +21,8 @@ public class MainMenu : MonoBehaviour
         settingsMenuPanel.SetActive(false);
         upgradeMenuPanel.SetActive(false);
         shopMenuPanel.SetActive(false);
-        heroesRepositoryPanel.SetActive(true);
-        mobsRepositoryPanel.SetActive(false);
+        heroesListPanel.SetActive(true);
+        mobsListPanel.SetActive(false);
     }
     public void PanelMainMenu()
     {
@@ -91,14 +91,14 @@ public class MainMenu : MonoBehaviour
 
     public void ShowHeroesRepositoryPanel()
     {
-        heroesRepositoryPanel.SetActive(true);
-        mobsRepositoryPanel.SetActive(false);
+        heroesListPanel.SetActive(true);
+        mobsListPanel.SetActive(false);
     }
 
     public void ShowMobsRepositoryPanel ()
     {
-        mobsRepositoryPanel.SetActive(true);
-        heroesRepositoryPanel.SetActive(false);
+        mobsListPanel.SetActive(true);
+        heroesListPanel.SetActive(false);
     }
 
 }
