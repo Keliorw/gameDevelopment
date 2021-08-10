@@ -6,11 +6,10 @@ using UnityEngine.UI;
 public class LocalizedText : MonoBehaviour
 {
     public string key;
+
     void Start()
     {
-        Text Line = GetComponent<Text>();
-        Line.text = LocalizationManager.instance.GetLocalizedValue(key);
-        Debug.Log(LocalizationManager.instance.GetLocalizedValue(key));
+        Text text = GetComponent<Text>();
+        text.text = LocalizationManager.instance.GetLocalizedValue(key);
     }
-
 }

@@ -7,10 +7,8 @@ using UnityEngine.SceneManagement;
 public class LocalizationManager : MonoBehaviour
 {
     public static LocalizationManager instance;
-
     private Dictionary<string, string> localizedText;
-    private string missingTextString = "Localized text not found";
-
+    private string missingTextString = "Text not found";
     private string currentLanguage;
 
     void Awake()
@@ -26,30 +24,15 @@ public class LocalizationManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-
-
-        if (!PlayerPrefs.HasKey("Language"))
-        {
-            if (Application.systemLanguage == SystemLanguage.Russian || Application.systemLanguage == SystemLanguage.Ukrainian || Application.systemLanguage == SystemLanguage.Belarusian)
-            {
-                PlayerPrefs.SetString("Language", "ru_RU");
-            }
-            else
-            {
-                PlayerPrefs.SetString("Language", "en_US");
-            }
-        }
-        currentLanguage = PlayerPrefs.GetString("Language");
-
-        LoadLocalizedText(currentLanguage+".json");
+        LoadLocalizedText("ru_RU.json");
+        
     }
 
     public void LoadLocalizedText(string fileName)
     {
-        this.localizedText = new Dictionary<string, string>();
-        string filePath = Path.Combine(Application.streamingAssetsPath+"/", fileName);
-        
-
+        localizedText = new Dictionary<string, string>();
+        string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
+        Debug.Log(filePath);
         if (File.Exists(filePath))
         {
             string dataAsJson = File.ReadAllText(filePath);
@@ -59,15 +42,12 @@ public class LocalizationManager : MonoBehaviour
             {
                 localizedText.Add(loadedData.items[i].key, loadedData.items[i].value);
             }
-
-            Debug.Log("Data loaded, dictionary contains: " + localizedText.Count + " entries");
-            
+            //SceneManager.LoadScene(0);
         }
         else
         {
             Debug.LogError("Cannot find file!");
         }
-
     }
 
     public string GetLocalizedValue(string key)
@@ -76,12 +56,7 @@ public class LocalizationManager : MonoBehaviour
         if (localizedText.ContainsKey(key))
         {
             result = localizedText[key];
-        }
-        else
-        {
-            Debug.LogError("Localized text with key \"" + key + "\" not found");
-        }
+        }        
         return result;
     }
-
 }
