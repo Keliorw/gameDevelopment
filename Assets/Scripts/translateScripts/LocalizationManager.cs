@@ -28,7 +28,11 @@ public class LocalizationManager : MonoBehaviour
         
     }
 
-    public void LoadLocalizedText(string fileName)
+    public void StartLocalizationOnClickButton(string filename){
+        LoadLocalizedText(filename, true);
+    }
+
+    public void LoadLocalizedText(string fileName, bool flag = false)
     {
         localizedText = new Dictionary<string, string>();
         string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
@@ -42,7 +46,9 @@ public class LocalizationManager : MonoBehaviour
             {
                 localizedText.Add(loadedData.items[i].key, loadedData.items[i].value);
             }
-            //SceneManager.LoadScene(0);
+            if(flag){
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
         else
         {
