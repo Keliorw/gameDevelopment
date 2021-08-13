@@ -18,7 +18,6 @@ public class MusicManager : MonoBehaviour
         audioClips = Resources.LoadAll<AudioClip>("MainMenuMusic");
         audioScr.PlayOneShot(audioClips[numberOfCurrendMusic]);
     }
-
     private void Update()
     {
         audioScr.volume = musicVolume;

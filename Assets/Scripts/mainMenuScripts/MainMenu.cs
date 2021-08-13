@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     public GameObject heroesListPanel;
     public GameObject mobsListPanel;
     public GameObject infoLvLPanel;
+    public GameObject AllLanguagePanel;
 
 
     private void Awake()
@@ -23,6 +24,7 @@ public class MainMenu : MonoBehaviour
         shopMenuPanel.SetActive(false);
         heroesListPanel.SetActive(true);
         mobsListPanel.SetActive(false);
+        AllLanguagePanel.SetActive(false);
     }
     public void PanelMainMenu()
     {
@@ -46,6 +48,7 @@ public class MainMenu : MonoBehaviour
         if(settingsMenuPanel.activeSelf)
         {
             settingsMenuPanel.SetActive(false);
+            AllLanguagePanel.SetActive(false);
         } else
         {
             settingsMenuPanel.SetActive(true);
@@ -101,5 +104,16 @@ public class MainMenu : MonoBehaviour
         heroesListPanel.SetActive(false);
     }
 
+    public void ShowAllLanguagePanel ()
+    {
+        if (AllLanguagePanel.activeSelf)
+        {
+            AllLanguagePanel.SetActive(false);
+        }
+        else
+        {
+            AllLanguagePanel.SetActive(true);
+        }
+    }
 }
 

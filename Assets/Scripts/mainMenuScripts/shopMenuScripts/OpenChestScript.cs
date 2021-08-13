@@ -13,8 +13,8 @@ public class OpenChestScript : MonoBehaviour
     public GameObject chestDroppedHero;
     public void OpenChest()
     {
-        chestDroppedMoney = Random.Range(1000, 5000);
-        chestDroppedExp = Random.Range(1000, 5000);
+        chestDroppedMoney = Random.Range(10, 50);
+        chestDroppedExp = Random.Range(5, 10);
         Debug.Log("Dropped money = " + chestDroppedMoney);
         Debug.Log("Dropped exp = " + chestDroppedExp);
     }
