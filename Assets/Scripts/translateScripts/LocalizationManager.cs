@@ -11,7 +11,6 @@ public class LocalizationManager : MonoBehaviour
 
     private SavePlayer saver;
     private Dictionary<string, string> localizedText;
-    private bool isReady = false;
     private string missingTextString = "Localized text not found";
 
     void Awake()
@@ -27,10 +26,6 @@ public class LocalizationManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         
         saver = ObjectSavePlayer.GetComponent<SavePlayer>();
-        if (saver.asd() == 1)
-        {
-            saver.SetLanguage("ru_RU.json");
-        }
         Debug.Log(saver.GetLanguage());
         LoadLocalizedText(saver.GetLanguage());
     }
@@ -65,8 +60,6 @@ public class LocalizationManager : MonoBehaviour
         {
             Debug.LogError("Cannot find file!");
         }
-
-        isReady = true;
     }
 
     public string GetLocalizedValue(string key)

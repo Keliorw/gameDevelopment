@@ -28,17 +28,11 @@ public class SavePlayer : MonoBehaviour
     public void SetLanguage(string lang)
     {
         sv.language = lang;
-        sv.a = 2;
     }
 
     public string GetLanguage()
     {
         return sv.language;
-    }
-
-    public int asd()
-    {
-        return sv.a;
     }
 
 #if UNITY_ANDROID && !UNITY_EDITOR
@@ -56,5 +50,4 @@ public class SavePlayer : MonoBehaviour
 public class Save
 {
     public string language;
-    public int a = 1;
 }
