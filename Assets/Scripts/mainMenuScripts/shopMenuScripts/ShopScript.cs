@@ -4,20 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ShopScript : MonoBehaviour
 {
-    public GameObject BuyInfoPanel;
+    public GameObject FirstChestPanel;
+    public GameObject SecondChestPanel;
 
-    public void CloseBuyInfoPanel()
+    public void CloseChestPanels()
     {
-        BuyInfoPanel.SetActive(false);
+        FirstChestPanel.SetActive(false);
+        SecondChestPanel.SetActive(false);
     }
     void Awake()
     {
-        CloseBuyInfoPanel();
+        CloseChestPanels();
     }
 
-    public void ActiveBuyInfoPanel ()
+    public void ActiveFirstChestPanel ()
     {
-        BuyInfoPanel.SetActive(true);
+        FirstChestPanel.SetActive(true);
     }
-    
+
+    public void ActiveSecondChestPanel()
+    {
+        SecondChestPanel.SetActive(true);
+    }
+
 }

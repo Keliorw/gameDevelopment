@@ -6,11 +6,10 @@ using System;
 
 public class SavePlayer : MonoBehaviour
 {
-    public static SavePlayer instanceSavePlayer;
     private Save sv = new Save();
     private string path;
 
-    private void Start()
+    private void Awake()
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
         path = Path.Combine(Application.persistentDataPath, "Save.json");
@@ -20,19 +19,28 @@ public class SavePlayer : MonoBehaviour
         if (File.Exists(path))
         {
             sv = JsonUtility.FromJson<Save>(File.ReadAllText(path));
-            Debug.Log("Language: " + sv.language);
+            Debug.Log("Awake !!!!!!!!!!!! Language: " + sv.language);
         }
-        else Debug.Log("Language: " + sv.language);
+        else Debug.Log("Error");
     }
 
     public void SetLanguage(string lang)
     {
         sv.language = lang;
+        File.WriteAllText(path, JsonUtility.ToJson(sv));
     }
 
     public string GetLanguage()
     {
         return sv.language;
+    }
+
+    public void SetHeroes(int[] saveHeroes, int countHeroes)
+    {
+        for(int i = 0; i < countHeroes; i++)
+        {
+            sv.heroes[i] = saveHeroes[i];
+        }
     }
 
 #if UNITY_ANDROID && !UNITY_EDITOR
@@ -50,4 +58,5 @@ public class SavePlayer : MonoBehaviour
 public class Save
 {
     public string language;
+    public int[] heroes;
 }

@@ -9,11 +9,12 @@ public class LocalizationManager : MonoBehaviour
     public static LocalizationManager instance;
     public GameObject ObjectSavePlayer;
 
+    private bool isReady = false;
     private SavePlayer saver;
     private Dictionary<string, string> localizedText;
     private string missingTextString = "Localized text not found";
 
-    void Awake()
+    private void Awake()
     {
         if (instance == null)
         {
@@ -24,20 +25,14 @@ public class LocalizationManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-        
-        saver = ObjectSavePlayer.GetComponent<SavePlayer>();
-        Debug.Log(saver.GetLanguage());
-        LoadLocalizedText(saver.GetLanguage());
-    }
 
-    public void OnButtonClicked (string fileName)
-    {
-        LoadLocalizedText(fileName, true);
+        saver = ObjectSavePlayer.GetComponent<SavePlayer>();
+        LoadLocalizedText();
     }
-    public void LoadLocalizedText(string fileName, bool flag = false)
+    private void LoadLocalizedText()
     {
         localizedText = new Dictionary<string, string>();
-        string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
+        string filePath = Path.Combine(Application.streamingAssetsPath, saver.GetLanguage());
 
         if (File.Exists(filePath))
         {
@@ -48,18 +43,18 @@ public class LocalizationManager : MonoBehaviour
             {
                 localizedText.Add(loadedData.items[i].key, loadedData.items[i].value);
             }
-
-            if (flag)
-            {
-                saver.SetLanguage(fileName);
-                SceneManager.LoadScene(0);
-            }
             Debug.Log("Data loaded, dictionary contains: " + localizedText.Count + " entries");
         }
         else
         {
             Debug.LogError("Cannot find file!");
         }
+    }
+
+    public void LocalizeText (string fileName)
+    {
+        saver.SetLanguage(fileName);
+        SceneManager.LoadScene(0);
     }
 
     public string GetLocalizedValue(string key)
@@ -73,5 +68,4 @@ public class LocalizationManager : MonoBehaviour
         return result;
 
     }
-
 }
