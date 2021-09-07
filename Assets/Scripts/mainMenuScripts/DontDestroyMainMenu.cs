@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class DontDestroyMainMenu : MonoBehaviour
 {
-    void Awake()
-    {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("canvas");
+    // void Awake()
+    // {
+    //     GameObject[] objs = GameObject.FindGameObjectsWithTag("canvas");
 
-        if (objs.Length > 1)
-        {
-            Destroy(this.gameObject);
-        }
+    //     if (objs.Length > 1)
+    //     {
+    //         Destroy(this.gameObject);
+    //     }
 
-        DontDestroyOnLoad(this.gameObject);
-    }
+    //     DontDestroyOnLoad(this.gameObject);
+    // }
 }

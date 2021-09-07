@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class DontDestroyMainCamera : MonoBehaviour
 {
-    void Awake()
-    {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("MainCamera");
+    // void Awake()
+    // {
+    //     GameObject[] objs = GameObject.FindGameObjectsWithTag("MainCamera");
 
-        if (objs.Length > 1)
-        {
-            Destroy(this.gameObject);
-        }
+    //     if (objs.Length > 1)
+    //     {
+    //         Destroy(this.gameObject);
+    //     }
 
-        DontDestroyOnLoad(this.gameObject);
-    }
+    //     DontDestroyOnLoad(this.gameObject);
+    // }
 }

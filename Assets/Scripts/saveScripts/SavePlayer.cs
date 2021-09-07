@@ -12,14 +12,13 @@ public class SavePlayer : MonoBehaviour
     private void Awake()
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
-        path = Path.Combine(Application.persistentDataPath, "Save.json");
+        path = Path.Combine(Application.streamingAssetsPath, "/Save.json");
 #else
-        path = Path.Combine(Application.dataPath, "Save.json");
+        path = Path.Combine(Application.streamingAssetsPath, "/Save.json");
 #endif
         if (File.Exists(path))
         {
             sv = JsonUtility.FromJson<Save>(File.ReadAllText(path));
-            Debug.Log("Awake !!!!!!!!!!!! Language: " + sv.language);
         }
         else Debug.Log("Error");
     }
@@ -54,9 +53,4 @@ public class SavePlayer : MonoBehaviour
         File.WriteAllText(path, JsonUtility.ToJson(sv));
     }
 }
-[Serializable]
-public class Save
-{
-    public string language;
-    public int[] heroes;
-}
+

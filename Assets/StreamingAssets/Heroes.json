@@ -1,0 +1,48 @@
+{
+	"Heroes": [
+		{
+			"Name":    "Knight",
+			"Level":   1,
+			"Health":  100,
+			"Defence": 10,
+			"Mana":    100,
+			"Price":   300
+		},
+		{
+			"Name":    "Magician",
+			"Level":   1000,
+			"Health":  1000,
+			"Defence": 7643,
+			"Mana":    99999999,
+			"Price":   100
+		},
+		{
+			"Name":    "Chel",
+			"Level":   10000,
+			"Health":  1000,
+			"Defence": 50,
+			"Mana":    99999999,
+			"Price":   100
+		}
+	],
+	"Mobs": [
+		{
+			"Name":    "Knight",
+			"Level":   1,
+			"Damage":  100,
+			"Health":  200,
+			"Defence": 300,
+			"Mana":    0,
+			"Price":   300
+		},
+		{
+			"Name":    "Archer",
+			"Level":   1,
+			"Damage":  100,
+			"Health":  250,
+			"Defence": 50,
+			"Mana":    0,
+			"Price":   100
+		}
+	]
+}

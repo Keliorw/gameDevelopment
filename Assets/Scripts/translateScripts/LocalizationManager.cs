@@ -9,13 +9,13 @@ public class LocalizationManager : MonoBehaviour
     public static LocalizationManager instance;
     public GameObject ObjectSavePlayer;
 
-    private bool isReady = false;
     private SavePlayer saver;
     private Dictionary<string, string> localizedText;
     private string missingTextString = "Localized text not found";
 
     private void Awake()
     {
+        
         if (instance == null)
         {
             instance = this;
@@ -24,16 +24,23 @@ public class LocalizationManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
-
+        // DontDestroyOnLoad(gameObject);
+        
         saver = ObjectSavePlayer.GetComponent<SavePlayer>();
         LoadLocalizedText();
     }
+
+    private void Start(){
+        
+    }
+
     private void LoadLocalizedText()
     {
         localizedText = new Dictionary<string, string>();
-        string filePath = Path.Combine(Application.streamingAssetsPath, saver.GetLanguage());
-
+        LanguageData languageInSave = JsonUtility.FromJson<LanguageData>(File.ReadAllText(Application.streamingAssetsPath+"/Save.json"));
+        Debug.Log(languageInSave);
+        string filePath = Path.Combine(Application.streamingAssetsPath, languageInSave.language);
+        
         if (File.Exists(filePath))
         {
             string dataAsJson = File.ReadAllText(filePath);
@@ -53,6 +60,7 @@ public class LocalizationManager : MonoBehaviour
 
     public void LocalizeText (string fileName)
     {
+        Debug.Log(fileName);
         saver.SetLanguage(fileName);
         SceneManager.LoadScene(0);
     }

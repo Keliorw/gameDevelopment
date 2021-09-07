@@ -24,6 +24,7 @@ public class Loader : MonoBehaviour
             progressText.text = string.Format("{0:0}%", progress * 100);
             yield return null;
         }
+        SceneManager.UnloadSceneAsync(this.sceneID);
     }
 
 
