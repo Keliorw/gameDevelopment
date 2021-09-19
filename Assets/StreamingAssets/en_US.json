@@ -5,8 +5,16 @@
 			"value": "Shop"
 		},
 		{
-			"key": "UpgradeButtonText",
-			"value": "Upgrades"
+			"key": "BarrackButtonText",
+			"value": "Barrack"
+		},
+		{
+			"key": "PlayButtonText",
+			"value": "Play"
+		},
+		{
+			"key": "SettingsText",
+			"value": "Settings"
 		}
 	]
 }

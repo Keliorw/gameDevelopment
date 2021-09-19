@@ -6,6 +6,7 @@ using System;
 
 public class SavePlayer : MonoBehaviour
 {
+    /*
     private Save sv = new Save();
     private string path;
 
@@ -21,17 +22,6 @@ public class SavePlayer : MonoBehaviour
             sv = JsonUtility.FromJson<Save>(File.ReadAllText(path));
         }
         else Debug.Log("Error");
-    }
-
-    public void SetLanguage(string lang)
-    {
-        sv.language = lang;
-        File.WriteAllText(path, JsonUtility.ToJson(sv));
-    }
-
-    public string GetLanguage()
-    {
-        return sv.language;
     }
 
     public void SetHeroes(int[] saveHeroes, int countHeroes)
@@ -50,7 +40,8 @@ public class SavePlayer : MonoBehaviour
 #endif
     private void OnApplicationQuit()
     {
-        File.WriteAllText(path, JsonUtility.ToJson(sv));
+        //File.WriteAllText(path, JsonUtility.ToJson(sv));
     }
+    */
 }
 

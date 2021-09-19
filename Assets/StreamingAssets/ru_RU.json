@@ -1,12 +1,20 @@
-{
+﻿{
 	"items": [
 		{
 			"key": "ShopButtonText",
 			"value": "Магазин"
 		},
 		{
-			"key": "UpgradeButtonText",
-			"value": "Улучшить"
+			"key": "BarrackButtonText",
+			"value": "Казарма"
+		},
+		{
+			"key": "PlayButtonText",
+			"value": "Играть"
+		},
+		{
+			"key": "SettingsText",
+			"value": "Настройки"
 		}
 	]
 }
